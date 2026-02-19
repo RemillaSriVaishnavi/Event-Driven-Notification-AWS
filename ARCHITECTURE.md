@@ -17,8 +17,6 @@ The system ensures decoupling between request handling and background processing
 ## High Level Architecture
 
 ```
-
-```
             ┌──────────────┐
             │    Client    │
             └──────┬───────┘
@@ -50,8 +48,6 @@ The system ensures decoupling between request handling and background processing
         └────────────────────┘
 ```
 
-```
-
 ## Event Flow
 
 ### Step 1: API Request
@@ -60,7 +56,6 @@ Client sends notification request to:
 
 ```
 POST /notify
-
 ```
 
 ### Step 2: Event Publication
