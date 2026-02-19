@@ -206,4 +206,3 @@ This system successfully demonstrates an event-driven architecture where:
 - PostgreSQL stores results
 
 All components interact asynchronously ensuring scalable and reliable notification processing.
-```
