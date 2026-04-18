@@ -12,7 +12,7 @@ sns_client = boto3.client(
     aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
 )
 
-TOPIC_ARN = "arn:aws:sns:us-east-1:000000000000:notification-events"
+TOPIC_ARN = os.getenv("SNS_TOPIC_ARN")
 
 def publish_event(event_type, payload):
     event = {

@@ -10,9 +10,10 @@ class Notification(Base):
     __tablename__ = "notifications"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    event_id = Column(UUID(as_uuid=True), nullable=False)
+    event_id = Column(String, primary_key=True)
     user_id = Column(UUID(as_uuid=True), nullable=True)
     notification_type = Column(String(100), nullable=False)
-    message_content = Column(String, nullable=False)
+    message_content = Column(String)
     status = Column(String(50), nullable=False)
     timestamp = Column(TIMESTAMP(timezone=True), server_default=func.now())
+

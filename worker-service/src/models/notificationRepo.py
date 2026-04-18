@@ -1,15 +1,15 @@
 from src.models.notification import Notification
 from src.database import SessionLocal
+from sqlalchemy.orm import Session
 
-def save_notification(event_id, user_id, notification_type, message):
-    db = SessionLocal()
-    notif = Notification(
-        event_id=event_id,
-        user_id=user_id,
-        notification_type=notification_type,
-        message_content=message,
-        status="SENT"
-    )
-    db.add(notif)
+def save_notification(db: Session, event_id: str, message: str):
+
+    existing = db.query(Notification).filter_by(event_id=event_id).first()
+
+    if existing:
+        print("Duplicate event, skipping...")
+        return
+
+    notification = Notification(event_id=event_id, message=message)
+    db.add(notification)
     db.commit()
-    db.close()
